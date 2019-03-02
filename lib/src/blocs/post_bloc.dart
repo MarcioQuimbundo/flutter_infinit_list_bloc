@@ -6,12 +6,16 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter_infinit_list_bloc/src/blocs/bloc.dart';
 import 'package:flutter_infinit_list_bloc/src/models/post.dart';
+import 'package:rxdart/rxdart.dart';
 
 class PostBloc extends Bloc<PostEvent, PostState> {
   final http.Client httpClient;
 
   PostBloc({@required this.httpClient});
 
+  Stream<PostEvent> transform(Stream<PostEvent> events) {
+    return (events as Observable<PostEvent>).debounce(Duration(microseconds: 500));
+  }
   @override
   PostState get initialState => PostUninitialized();
 
