@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_infinit_list_bloc/src/widgets/post_widget.dart';
 import 'package:http/http.dart' as http;
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,10 +45,9 @@ class _HomePageState extends State<HomePage> {
           }
           return ListView.builder(
             itemBuilder: (BuildContext context, int index){
-              return null;
-              /*index >= state.posts.length
+              return index >= state.posts.length
                 ? BottomLoader()
-                : PostWidget(post: state.posts[index]);*/
+                : PostWidget(post: state.posts[index]);
             },
             itemCount: state.hasReachedMax
               ? state.posts.length

@@ -1,7 +1,18 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_infinit_list_bloc/src/widgets/home_page.dart';
 
-void main() => runApp(App());
+class SimpleBlocDelegate extends BlocDelegate {
+  @override
+  void onTransition(Transition transition) {
+    print(transition);
+  }
+}
+
+void main() {
+  BlocSupervisor().delegate = SimpleBlocDelegate();
+  return runApp(App());
+} 
 
 class App extends StatefulWidget {
   final Widget child;
