@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_infinit_list_bloc/src/widgets/home_page.dart';
 
 void main() => runApp(App());
 
@@ -15,7 +16,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Infinit Scroll Bloc',
-      home: null,
+      home: HomePage(),
     );
   }
 }
